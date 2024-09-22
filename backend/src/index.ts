@@ -13,11 +13,8 @@ configDotenv();
 const app = express();
 const port = process.env.PORT || 3000;
 
-const allowedOrigin = process.env.CLIENT_URL || "http://localhost:5173";
-
 app.use(
   cors({
-    origin: allowedOrigin,
     credentials: true,
   })
 );
@@ -30,9 +27,12 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Sarayu Digital Labs - Fullstack Assignment");
 });
 
+// Parse the JSON string from the environment variable
+const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG as string);
+
 // Initialize Firebase Admin SDK
 admin.initializeApp({
-  credential: admin.credential.cert(require("./serviceAccountKey.json")),
+  credential: admin.credential.cert(firebaseConfig),
 });
 
 // routes
