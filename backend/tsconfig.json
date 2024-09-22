@@ -8,7 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types", "./src/@types"] // Added custom types directory
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
