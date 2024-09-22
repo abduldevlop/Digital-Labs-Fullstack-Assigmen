@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "tsc && cp -R dist/* public/",
+    "build": "tsc && ncp dist public",
     "start": "node dist/index.js"
   },
   "keywords": [],
@@ -31,6 +31,7 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.5.5",
     "@types/pg": "^8.11.10",
+    "ncp": "^2.0.0",
     "nodemon": "^3.1.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
